@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para mi Estrellita 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #f8cdda, #f5f7fa, #d7bde2);
+      overflow: hidden;
+      font-family: 'Segoe Script', cursive;
+      color: #fff;
+      height: 100vh;
+      position: relative;
+    }
+
+    .big-heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 270px;
+      transform: translate(-50%, -50%) rotate(45deg);
+      background: radial-gradient(circle at 30% 30%, #ff8fab, #e91e63);
+      animation: pulse 2s infinite;
+      z-index: 1;
+    }
+
+    .big-heart::before,
+    .big-heart::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 270px;
+      border-radius: 50%;
+      background: inherit;
+    }
+
+    .big-heart::before {
+      top: -150px;
+      left: 0;
+    }
+
+    .big-heart::after {
+      left: -150px;
+      top: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+      50% { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+      100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+    }
+
+    .container {
+      z-index: 2;
+      position: relative;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .message {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(255, 192, 203, 0.5);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #fff5f5;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px #f06292;
+    }
+
+    p {
+      font-size: 1.3em;
+      color: #ffeef8;
+      line-height: 1.8;
+      text-shadow: 1px 1px 2px #c2185b;
+    }
+
+    .floaty-heart, .floaty-text {
+      position: absolute;
+      font-size: 1.2em;
+      color: #ff4081;
+      animation: floatUp 6s linear infinite;
+    }
+
+    .floaty-heart::before {
+      content: "\2665";
+      font-size: 1.5em;
+    }
+
+    .floaty-text {
+      color: #ffffff;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px #ec407a;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="big-heart"></div>
+
+  <div class="container">
+    <div class="message">
+      <h1>Para ti, mi estrellita 🌟</h1>
+      <p>
+        Mi querida Alisson,<br><br>
+        Eres mi estrellita, mi romsito, mi cochita, mi amor y mi princesa. Cada día contigo es un regalo divino. Te amo con toda el alma, y siempre serás la mujer de mis ojos. 💖<br><br>
+        ¡Gracias por existir y ser tú, perfecta y única!
+      </p>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://audio.com/kamil-shbeir-1/audio/baile-inolvidable-bad-bunny" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    function createFloatyElement(text, className) {
+      const el = document.createElement('div');
+      el.className = className;
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.top = '100vh';
+      el.textContent = text;
+      document.body.appendChild(el);
+      setTimeout(() => document.body.removeChild(el), 6000);
+    }
+
+    setInterval(() => createFloatyElement('❤', 'floaty-heart'), 300);
+    setInterval(() => createFloatyElement('TE AMO', 'floaty-text'), 1000);
+  </script>
+</body>
+</html>
